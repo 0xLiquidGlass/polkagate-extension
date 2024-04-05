@@ -9,7 +9,7 @@ import React, { useCallback } from 'react';
 import { TwoButtons } from '../../components';
 import { setStorage } from '../../components/Loading';
 import { useExtensionLockContext } from '../../context/ExtensionLockContext';
-import { useTranslation } from '../../hooks';
+import { useFullscreen, useTranslation } from '../../hooks';
 import Passwords2 from '../newAccount/createAccountFullScreen/components/Passwords2';
 import { STEPS } from './constants';
 
@@ -21,6 +21,7 @@ interface Props {
 }
 
 function FirstTimeSetPassword({ hashedPassword, onPassChange, setHashedPassword, setStep }: Props): React.ReactElement {
+  useFullscreen();
   const { t } = useTranslation();
   const { setExtensionLock } = useExtensionLockContext();
 
